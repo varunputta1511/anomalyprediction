@@ -1,0 +1,13 @@
+numpy>=1.23
+pandas
+scikit-learn
+matplotlib
+streamlit
+joblib
+tensorflow==2.11.0
+keras==2.11.0
+protobuf<3.20,>=3.9.2
+pillow
+graphviz
+pydot
+visualkeras
