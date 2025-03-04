@@ -70,6 +70,8 @@ def main():
     sensor_names = ['s_{}'.format(i) for i in range(1, 22)]
     col_names = index_names + setting_names + sensor_names
     
+    time_cycle_each_test = []
+    
     if train_file is not None:
         train_df = pd.read_csv(train_file, sep='\s+' if train_file.type == "text/plain" else ',', header=None)
         train_df.columns = col_names
@@ -90,10 +92,19 @@ def main():
         test_df.drop(['setting_3', 's_1', 's_10', 's_18', 's_19'], axis=1, inplace=True)
         X_test = test_df[['s_2', 's_3', 's_4', 's_7', 's_8', 's_11', 's_12', 's_13', 's_15', 's_17', 's_20', 's_21']]
         X_test = sc.transform(X_test)
+        
+        for i in range(1, len(test_df.unit_nr.unique()) + 1):
+            time_cycle_each_test.append(len(test_df.time_cycles[test_df['unit_nr'] == i]))
     
     if y_test_file is not None:
         y_test = pd.read_csv(y_test_file, sep='\s+' if y_test_file.type == "text/plain" else ',', header=None, names=['RUL'])
         st.success("✅ y_test Data Uploaded Successfully!")
+        
+        y_test_expanded = np.repeat(y_test['RUL'].values, repeats=time_cycle_each_test[:len(y_test['RUL'])])
+        if len(y_test_expanded) != len(X_test):
+            st.error(f"Size mismatch! y_test: {len(y_test_expanded)}, X_test: {len(X_test)}")
+            return
+        y_test = pd.DataFrame({'RUL': y_test_expanded})
     
         if st.button('🚀 Predict RUL'):
             mse, acc, y_pred_csv = predict(X_train, y_train, X_test, y_test)
