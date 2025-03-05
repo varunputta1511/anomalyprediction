@@ -78,9 +78,9 @@ Each engine has *21 sensor readings* collected over time until failure. The data
 | *Random Forest*              | 7279  | 85.3  | 3.25     | 94          |
 | *Support Vector Regressor*   | 5770  | 75.9  | 2.36     | 57 (Best Traditional) |
 | *Gradient Boosting*          | 6968  | 83.4  | 3.06     | 60          |
-| *Artificial Neural Network*  | TBD   | TBD   | TBD      | TBD         |
-| *Recurrent Neural Network*   | TBD   | TBD   | TBD      | TBD         |
-| *LSTM (Deep Learning)*       | TBD   | TBD   | TBD      | TBD (Best Deep Learning) |
+| *Artificial Neural Network*  | 7341  | 85.6  | 3.29     | 72.89       |
+| *Recurrent Neural Network*   | 6648.1| 81.53 | 2.88     | 100         |
+| *LSTM (Deep Learning)*       | 6711.7| 81.92 | 2.91     | 100 (Best Deep Learning) |
 
 📌 *Key Findings:*
 ✔ *Support Vector Regressor (SVR) had the lowest RMSE (75.9), making it the best traditional model.*
