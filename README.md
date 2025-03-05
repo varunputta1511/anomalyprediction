@@ -137,5 +137,6 @@ jupyter notebook
 ---
 
 ## 🤝 *Contributors*
-👨‍💻 *Your Name* ([@your-github](https://github.com/your-username))  
+👨‍💻 *Siddhant Shetty* ([@your-github](https://github.com/Siddhantshetty)) 
+👨‍💻 *Varun Putta* ([@your-github](https://github.com/varunputta1511))  
 📩 Feel free to *open issues & pull requests* for improvements!
